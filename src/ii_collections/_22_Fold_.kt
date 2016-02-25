@@ -12,10 +12,15 @@ fun whatFoldDoes(): Int {
     return result
 }
 
+//Fold er noe harde greier...........
 fun Shop.getSetOfProductsOrderedByEveryCustomer(): Set<Product> {
     // Return the set of products ordered by every customer
     return customers.fold(allOrderedProducts, {
+        //allorderedproducts er alle produkter som er blitt ordered
+        //OrdererbyAll blir da initial verdi som er tom?
+        //Tar inn  customer blir alle customers i lista
+        //Gjør en intersect på customer sine bestilte produkter og initial list.
         orderedByAll, customer ->
-        todoCollectionTask()
+        orderedByAll.intersect(customer.orderedProducts)
     })
 }
